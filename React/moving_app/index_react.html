@@ -2,14 +2,67 @@
 <html lang="ko">
 <body>
   
-  <div class="test"></div>
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.2/babel.js" integrity="sha512-rJN+AlfLoCWsFIsH9XPijK7EeWpVjteVso4ZSuLCfEXhUlEMZ/4KGBpJdibxbaFgYvruWmbKvzp1v88Xu33/2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- React의 오래된 방식을 더 간소화 하게 바꾸기 위해 필요함 ===> babel -->
+
+  <script type="text/babel">  // JSX 로 변환해 준다,
+    const root = document.getElementById("root");
+
+    function Title(){
+      return (
+        <h3 id="title"
+          onMouseEnter = {()=> console.log("mouse enter")}
+          onMouseLeave = {()=> console.log("mouse leave")}
+          >
+          Hello World
+        </h3>
+      )
+      
+    }
+    // const span = React.createElement
+    // (
+    //   "h3", 
+    //   {
+    //     id: "title", 
+    //     onMouseEnter: () => console.log("mouse enter") 
+    //   }, 
+    //   "Hello World"
+    // );
 
 
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script>
+    const Button = () => ( // 함수로 만듬. (  = () => 이 문장이 function Button(){ retrun()} 까지 표현해서 더 선호함  )
+      <button style = {{
+        backgroundColor: "tomato",
+      }} 
+      onClick = {() => console.log("click !!!!")}
+      >
+      click me
+      </button>
+    )
 
-    
+    // const btn = React.createElement("button", 
+    // {
+    //   onClick: () => console.log("click !!!!"),
+    //   style: {
+    //     backgroundColor: "tomato",
+    //   }
+    // }, 
+    // "click me")
+
+    //const container = React.createElement("div", null, [Title, Button])
+
+      const Container = () => (
+        <div>
+          <Title /> 
+          <Button />
+        </div>
+      )
+
+    ReactDOM.render(<Container />, root);       
     
   </script>
 </body>

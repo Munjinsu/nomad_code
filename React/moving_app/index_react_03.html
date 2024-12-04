@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+  
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.2/babel.js" integrity="sha512-rJN+AlfLoCWsFIsH9XPijK7EeWpVjteVso4ZSuLCfEXhUlEMZ/4KGBpJdibxbaFgYvruWmbKvzp1v88Xu33/2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- React의 오래된 방식을 더 간소화 하게 바꾸기 위해 필요함 ===> babel -->
+
+  <script type="text/babel">  // JSX 로 변환해 준다,
+    const root = document.getElementById("root");
+
+    const App = () => {
+      const [counter, setCounter] = React.useState(0);  // === const conunter= React.useState[0] // const modifier = React.useState[1] 와 같다. 
+      const onClick = () => {
+        setCounter(counter + 1);
+      };
+      
+      return (
+        <div>
+          <h3>Total Clicks: {counter} </h3>
+          
+          <button onClick = {onClick}>click me</button>         
+        </div>
+      )
+    }
+    
+    ReactDOM.render(<App />, root);       
+    
+  </script>
+</body>
+</html>

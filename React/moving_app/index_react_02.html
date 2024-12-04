@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+  
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.2/babel.js" integrity="sha512-rJN+AlfLoCWsFIsH9XPijK7EeWpVjteVso4ZSuLCfEXhUlEMZ/4KGBpJdibxbaFgYvruWmbKvzp1v88Xu33/2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- React의 오래된 방식을 더 간소화 하게 바꾸기 위해 필요함 ===> babel -->
+
+  <script type="text/babel">  // JSX 로 변환해 준다,
+    const root = document.getElementById("root");
+    let counter = 0;
+    function counterUp(){
+      counter = counter + 1;
+     
+      render()
+    }
+
+    function render(){
+      ReactDOM.render(<Container />, root);       
+    }
+
+    const Container = () => (
+        <div>
+          <h3>Total Clicks: {counter} </h3>
+          <button onClick = {counterUp}>click me</button>
+          
+        </div>
+      )
+
+      render();
+
+      // 바뀔때 마다 render 링을 해줘야 하는 단점이 있다.
+    
+  </script>
+</body>
+</html>
