@@ -12,7 +12,7 @@
   <script type="text/babel">  // JSX 로 변환해 준다,
     const root = document.getElementById("root");
     
-    const App = () => {
+    const MinutesToHoure = () => {
       const [amount, setAmount] = React.useState();
       const [flipped, setFlipped] = React.useState(false);
 
@@ -28,7 +28,6 @@
 
       return (
         <div>
-          <h1>Super Converter</h1>
           <div>
             <label htmlFor="minutes">Minutes</label>
             <input 
@@ -56,6 +55,77 @@
           <button onClick={reset}>Reset</button>
           <button onClick={onFlip}>Flip</button>
           
+        </div>
+      )
+    }
+
+    const KmToMiles = () => {
+      const [amount, setAmount] = React.useState()
+      const [flip, setFliped] = React.useState(false)
+
+      const onChange = (e)=> {
+        setAmount(e.target.value);
+      }
+
+      const reset =() => setAmount(0)
+
+      const invert = ()=> {
+        reset();
+        setFliped((current) => !current);
+      }
+
+
+      return (
+        <div>
+          <h1>KM 2 M</h1>
+          <div>
+            <label htmlFor="km">Km</label>
+            <input 
+              id="km" 
+              value={flip ? amount * 1.609: amount}
+              type="number" 
+              placeholder="Km"
+              onChange={onChange}
+              disabled={flip}
+            />  
+          </div>
+
+          <div>
+            <label htmlFor="miles">Miles</label>
+            <input 
+              id="miles" 
+              value={flip ? amount: amount / 1.609}
+              type="number" 
+              placeholder="Miles"
+              onChange={onChange}
+              disabled={!flip}
+            />  
+          </div>
+
+          <button onClick={invert}>Flip</button>
+          
+          
+        </div>
+        
+      )
+    }
+
+    const App = () => {
+      const [index, setIndex] = React.useState("1");
+      const onSelect = (event) => {
+        setIndex(event.target.value)
+      }
+
+      return ( 
+        <div>
+          <h1>Super Converter</h1>
+          <select value={index} onChange={onSelect}>
+            <option value="0">Minutes & Hours</option>  
+            <option value="1">Km & Miles</option>  
+          </select>
+          <hr />
+          {index === "0" ? <MinutesToHoure />: null}
+          {index === "1" ? <KmToMiles />: null}
         </div>
       )
     }

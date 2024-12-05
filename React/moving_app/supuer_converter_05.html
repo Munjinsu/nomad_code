@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+  
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.2/babel.js" integrity="sha512-rJN+AlfLoCWsFIsH9XPijK7EeWpVjteVso4ZSuLCfEXhUlEMZ/4KGBpJdibxbaFgYvruWmbKvzp1v88Xu33/2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- React의 오래된 방식을 더 간소화 하게 바꾸기 위해 필요함 ===> babel -->
+
+  <script type="text/babel">  // JSX 로 변환해 준다,
+     function Btn({text ,changesValue}){
+      
+      return (
+        <button
+          onClick={changesValue}
+          style={{
+            backgroundColor: "tomato",
+            color:"white",
+            padding:"10px 20px",
+            border:0,
+            borderRadius:10,
+          }}
+        >
+        {text}
+        </button>)
+     }
+  
+    const MemorizedBtn = React.memo(Btn); // state 에서 바뀌지 않는것은 다시 re-render 되지 않게 해준다.   
+
+    const App = () => {
+      const [value, setValue] = React.useState("Save Changes")
+
+      const changesValue = ()=> setValue("Revert Changes")
+
+      return( 
+        <div>
+          <Btn text={value} changesValue={changesValue}/>
+          <Btn text="Continue"/>
+          
+          {/*state 에서 바뀌지 않는것은 다시 re-render 되지 않게 해준다. 
+            <MemorizedBtn text={value} changesValue={changesValue}/>
+            <MemorizedBtn text="Continue"/>
+          */}
+
+        </div>
+      )
+    }
+    
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);       
+    
+  </script>
+</body>
+</html>

@@ -10,30 +10,35 @@
   <!-- React의 오래된 방식을 더 간소화 하게 바꾸기 위해 필요함 ===> babel -->
 
   <script type="text/babel">  // JSX 로 변환해 준다,
+     function Btn({text, big}){
+      
+      return (
+        <button
+          style={{
+            backgroundColor: "tomato",
+            color:"white",
+            padding:"10px 20px",
+            border:0,
+            borderRadius:10,
+            fontSize:big? 16 : 10,
+          }}
+        >
+        {text}
+        </button>)
+     }
+  
 
-    const root = document.getElementById("root");
-    let counter = 0;
-
-    function counterUp(){
-      counter = counter + 1; 
-      render();
-      // 바뀔때 마다 render를 추가 해줘야 하는 단점이 있다.
-    }
-
-    function render(){
-      ReactDOM.render(<Container />, root);       
-    }
-
-    const Container = () => (
+    const App = () => {
+      return( 
         <div>
-          <h3>Total Clicks: {counter} </h3>
-          <button onClick = {counterUp}>click me</button>
+          <Btn text="Save Changes" big={true}/>
+          <Btn text="Continue" big={false}/>
         </div>
-    )
-
-      render();
-
-      // 바뀔때 마다 render를 추가 해줘야 하는 단점이 있다.
+      )
+    }
+    
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);       
     
   </script>
 </body>
