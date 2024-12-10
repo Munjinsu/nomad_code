@@ -10,7 +10,7 @@
   <!-- React의 오래된 방식을 더 간소화 하게 바꾸기 위해 필요함 ===> babel -->
 
   <script type="text/babel">  // JSX 로 변환해 준다,
-     function Btn({text, big}){
+     function Btn({text, big}){  //  function Btn(props){  ==> shortcut 
       
       return (
         <button
@@ -20,10 +20,10 @@
             padding:"10px 20px",
             border:0,
             borderRadius:10,
-            fontSize:big? 16 : 10,
+            fontSize:big? 16 : 10,  // 논리 값을 받을 수 있음
           }}
         >
-        {text}
+        {text}  {/* {props.text} */}
         </button>)
      }
   

@@ -4,14 +4,14 @@
   
   <div id="root"></div>
 
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.2/babel.js" integrity="sha512-rJN+AlfLoCWsFIsH9XPijK7EeWpVjteVso4ZSuLCfEXhUlEMZ/4KGBpJdibxbaFgYvruWmbKvzp1v88Xu33/2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- React의 오래된 방식을 더 간소화 하게 바꾸기 위해 필요함 ===> babel -->
+  <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script> <!-- proptype는 네가 어떤 타입의 prop를 받고 있는지를 체크해준다 -->
 
   <script type="text/babel">  // JSX 로 변환해 준다,
-     function Btn({text, fontSize}){
-      console.log(fontSize)
+     function Btn({text, fontSize = 14}){ /* fontSize의 디폴트는 16 */
       
       return (
         <button
@@ -21,18 +21,26 @@
             padding:"10px 20px",
             border:0,
             borderRadius:10,
-            fontSize
+            fontSize  // ==> fontSize: {fontSize}
           }}
         >
-        {text}
-        </button>)
+        {text}  
+        
+        </button>
+      )
      }
   
     
+     Btn.propTypes = {
+        text: PropTypes.string.isRequired,
+        fontSize: PropTypes.number,
+     }
+
     const App = () => {
       return( 
         <div>
           <Btn text="Save Changes" fontSize={18} />
+          <Btn text="Continue"/>  {/* text 는 string 으로, fontSize는 number 로 받기를 원한다. */}
         </div>
       )
     }

@@ -11,10 +11,10 @@
 
   <script type="text/babel">  // JSX 로 변환해 준다,
      function Btn({text ,changesValue}){
-      
+      console.log(text + "was re-render" )
       return (
         <button
-          onClick={changesValue}
+          onClick={changesValue}  // props 로 함수를 받을 수 있음
           style={{
             backgroundColor: "tomato",
             color:"white",
