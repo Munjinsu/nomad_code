@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/static/js/main.f80d9563.js",
-    "index.html": "/index.html",
-    "main.f80d9563.js.map": "/static/js/main.f80d9563.js.map"
+    "main.js": "/nomad_code/static/js/main.f80d9563.js",
+    "index.html": "/nomad_code/index.html",
+    "main.f80d9563.js.map": "/nomad_code/static/js/main.f80d9563.js.map"
   },
   "entrypoints": [
     "static/js/main.f80d9563.js"
