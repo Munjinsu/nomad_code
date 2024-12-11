@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/movie">
+        <Route path="/movie/:id">  {/* :id 는 변수 값, 아무거나 변경 가능 */}
           <Detail/>
         </Route>
         <Route path="/">
