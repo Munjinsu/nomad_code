@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+/*-------------------------------------------------------------------
+    @ Poppins
+-------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*-------------------------------------------------------------------
+	분류그룹 : Normalize
+	속성순서 : 레이아웃, 박스 모델, 배경, 폰트/정렬, 기타
+-------------------------------------------------------------------*/
+/* ------ font ------ */
+html {font-size: 62.5%;}
+body {font-size: 1.6rem; line-height: 1.5;}
+
+/* ------ all style ------ */
+* {line-height: 1.5; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;}
+html, body {color: var(--color-gray-90); word-break: keep-all; overflow-wrap: break-word; font-family: "Poppins", sans-serif;}
+html, body {-webkit-text-size-adjust: none; -moz-text-size-adjust: none; -ms-text-size-adjust: none; -o-text-size-adjust: none;} /* 폰트확대X */
+
+/* ------ tag ------ */
+body, div, p, h1, h2, h3, h4, h5, h6,
+ul, ol, li, dl, dt, dd, table, th, td,
+form, fieldset, legend, input, textarea, a, button, select,
+span, strong, em, label, ::before, ::after {margin:0px; padding:0px; line-height: inherit; box-sizing: border-box;}
+header, footer, article, aside, details, figcaption, figure, hgroup, main, menu, nav, section {display: block; margin:0px; padding:0px;}
+pre {font-family: inherit;}
+table, th, td {border-spacing: 0px; border-collapse:collapse;}
+img, fieldset {max-width: 100%; border: 0px;}
+em {font-style: normal;}
+/* ------ list ------ */
+ul, ol, dl, dt, dd {list-style:none;}
+/* ------ link ------*/
+a, a:link, a:visited, a:active, a:hover, a:focus {color: inherit; text-decoration:none;}
+/* ------ form ------ */
+input, textarea, select, button {border: 0; font-family: inherit;}
+input[type=text], input[type=tel], input[type=password], input[type=file], input[type=number], input[type=email], input[type=date], input[type=search], select,
+textarea {vertical-align:middle; -webkit-box-shadow: none; box-shadow: none; appearance: none; -webkit-appearance: none; -moz-appearance: none;}
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {-webkit-box-shadow: 0 0 0 30px #ffffff inset !important; -webkit-text-fill-color: inherit; transition: background-color 5000s ease-in-out 0s;} /* 자동완성 */
+input[type="text"]::-ms-clear {display: none;}
+input[type="number"] {-moz-appearance: textfield;}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {margin: 0; appearance: none; -webkit-appearance: none;}
+button, input[type="button"], input[type="submit"] {cursor: pointer;}
+/* IE 10, 11의 네이티브 화살표 숨기기 */
+select::-ms-expand {display: none;}
+
+.hidden {display: none;}
+
+
+/*-------------------------------------------------------------------
+	분류이름: 레이아웃
+	분류그룹: 공통
+-------------------------------------------------------------------*/
+body,html,main {
+    width: 100%;
+    height: 100%;
+	background-color: #fff;
+}
+
+#container {display: flex; flex-direction: column; align-items: flex-start; justify-content: center; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 2; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .25); transition: .3s;}
+
+
+/*-------------------------------------------------------------------
+	분류이름: Background
+	분류그룹: 메인
+-------------------------------------------------------------------*/
+#bg-wrap {position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; width: 100%; height: 100%; contain: layout paint style;}
+#bg-wrap img {display: block; max-width: 100%; width: 100%; height: 100%; object-fit: cover;}
+
+
+/*-------------------------------------------------------------------
+	분류이름: 로그인 폼
+	분류그룹: 로그인
+-------------------------------------------------------------------*/
+.login-wrap {display: flex; align-items: center; justify-content: center; width: 100%;}
+#login-form #login-input {outline: none;}
+#login-form .login-input {position: relative; display: block;}
+#login-form .login-input::before {content: ""; position: absolute; bottom: 0; left: 50%; width: 0; height: 0.2rem; background-color: #000; transform: translateX(-50%); transition: width .3s;} 
+#login-form input {font-size: 3.2rem; text-align: center;}
+
+
+/*-------------------------------------------------------------------
+	@variation
+-------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------
+	@interaction
+-------------------------------------------------------------------*/
+#login-form #login-input:focus + .login-input:before {width: 100%;}
+
+
+/*-------------------------------------------------------------------
+	분류이름: greeting
+	분류그룹: main
+-------------------------------------------------------------------*/
+.greeting-wrap {display: flex; align-items: center; justify-content: center; width: 100%;}
+#greeting {font-size: 4rem; color: #fff; text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);}
+#greeting span {font-size: 3.2rem;} 
+
+
+/*-------------------------------------------------------------------
+	분류이름: Clock
+	분류그룹: main
+-------------------------------------------------------------------*/
+.clock-wrap {display: flex; align-items: center; justify-content: center; width: 100%;}
+#clock {font-size: 10rem; color: #fff; text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex_TODO</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <div id="bg-wrap" data-bg="spring"></div> <!-- spring / summer / autumn / winter -->
+        <div id="container">
+
+            <div class="login-wrap">
+                <form id="login-form" class="hidden">
+                    <input type="text" id="login-input" maxlength="15" required placeholder="what is you are name">
+                    <label for="login-input" class="login-input"></label>
+                    <input type="submit" class="hidden" value="Log in">
+                </form>
+            </div>
+
+            <div class="clock-wrap">
+                <h2 id="clock">00:00:00</h2>
+            </div>
+
+            <div class="greeting-wrap">
+                <h1 id="greeting" class="hidden"></h1>
+            </div>
+            
+        </div>
+        
+    </main>
+
+    <script src="js/greeting.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/background.js"></script>
+</body>
+</html>
